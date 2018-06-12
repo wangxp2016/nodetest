@@ -132,8 +132,10 @@ function pagination(path, p, s, params) {
         jsonData.data = doFilter(jsonData.data, conditions);
         //把数据读出来
         var length = jsonData.data.length;
-        var count = (p + 1) * s > length ? length : (p + 1) * s
-        jsonData.data = jsonData.data.slice(s * (p - 1), count);
+        console.log("page",p,s);
+        var count =  s > length ? length : s
+        console.log("count",s * (p - 1), count);
+        jsonData.data = jsonData.data.slice((p-1) * s, count);
         jsonData.total = jsonData.data.length;
         return jsonData;
     } catch (error) {
@@ -239,7 +241,7 @@ function parseUrl(path) {
 
 exports.list = function (req, res) {
     let path = req.query.path;
-    let page = req.query.page || 0;
+    let page = req.query.page || 1;
     let size = req.query.size || 10;
     let params = req.query;
     console.log(params);
