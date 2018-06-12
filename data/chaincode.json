@@ -46,7 +46,7 @@
         },
         {
             "id": "S20191113",
-            "contractName": "S20191113",
+            "contractName": "S201911",
             "minerType": "S9",
             "contractCurrency": "ETH",
             "hashRate": "11",
@@ -67,7 +67,7 @@
         },
         {
             "id": "S20190601",
-            "contractName": "S20190601",
+            "contractName": "S201906",
             "minerType": "S9",
             "contractCurrency": "BTC",
             "hashRate": "13",
@@ -88,7 +88,7 @@
         },
         {
             "id": "E20190102",
-            "contractName": "E20190102",
+            "contractName": "E201901",
             "minerType": "E8",
             "contractCurrency": "ETH",
             "hashRate": "18",
@@ -109,7 +109,7 @@
         },
         {
             "id": "E20190202",
-            "contractName": "E20190202",
+            "contractName": "E201902",
             "minerType": "E8",
             "contractCurrency": "ETH",
             "hashRate": "12",
@@ -130,7 +130,7 @@
         },
         {
             "id": "S20190104",
-            "contractName": "S20190104",
+            "contractName": "S201901",
             "minerType": "S2",
             "contractCurrency": "BTC",
             "hashRate": "13",
@@ -151,7 +151,7 @@
         },
         {
             "id": "E20190105",
-            "contractName": "E20190105",
+            "contractName": "E201901",
             "minerType": "E9",
             "contractCurrency": "ETH",
             "hashRate": "19",
@@ -172,7 +172,7 @@
         },
         {
             "id": "W20190106",
-            "contractName": "W20190106",
+            "contractName": "W201901",
             "minerType": "W2",
             "contractCurrency": "BTC",
             "hashRate": "23",
@@ -193,7 +193,7 @@
         },
         {
             "id": "W20190105",
-            "contractName": "W20190105",
+            "contractName": "W201901",
             "minerType": "W9",
             "contractCurrency": "ETH",
             "hashRate": "18",
@@ -214,7 +214,7 @@
         },
         {
             "id": "W20190406",
-            "contractName": "W20190406",
+            "contractName": "W201904",
             "minerType": "W4",
             "contractCurrency": "BTC",
             "hashRate": "20",
@@ -235,7 +235,7 @@
         },
         {
             "id": "P20190107",
-            "contractName": "P20190107",
+            "contractName": "P201901",
             "minerType": "S9",
             "contractCurrency": "BTC",
             "hashRate": "13",
@@ -256,7 +256,7 @@
         },
         {
             "id": "E20190108",
-            "contractName": "E20190108",
+            "contractName": "E201901",
             "minerType": "E4",
             "contractCurrency": "ETH",
             "hashRate": "11",
@@ -277,7 +277,7 @@
         },
         {
             "id": "S20190109",
-            "contractName": "S20190109",
+            "contractName": "S201901",
             "minerType": "S9",
             "contractCurrency": "BTC",
             "hashRate": "13",
@@ -298,7 +298,7 @@
         },
         {
             "id": "P20180207",
-            "contractName": "P20180207",
+            "contractName": "P201802",
             "minerType": "P9",
             "contractCurrency": "BTC",
             "hashRate": "13",
@@ -319,7 +319,7 @@
         },
         {
             "id": "E20170108",
-            "contractName": "E20170108",
+            "contractName": "E201701",
             "minerType": "E0",
             "contractCurrency": "ETH",
             "hashRate": "11",
@@ -340,7 +340,7 @@
         },
         {
             "id": "S20180109",
-            "contractName": "S20180109",
+            "contractName": "S201801",
             "minerType": "S8",
             "contractCurrency": "BTC",
             "hashRate": "13",
