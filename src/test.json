@@ -1,0 +1,8 @@
+{
+    "chooses": [
+        {
+            "type": "status",
+            "value": 3
+        }
+    ]
+}

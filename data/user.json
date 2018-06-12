@@ -1,0 +1,29 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "superAdmin",
+            "password":"admin",
+            "role":0,
+            "status":1,
+            "online":1
+        },
+        {
+            "id": 2,
+            "name": "admin",
+            "password":"admin",
+            "role":1,
+            "status":1,
+            "online":1
+        },
+        {
+            "id": 3,
+            "name": "examinant",
+            "password":"admin",
+            "role":2,
+            "status":2,
+            "online":1
+        }
+    ],
+    "total": 3
+}
