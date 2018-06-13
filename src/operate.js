@@ -58,7 +58,6 @@ function deleteJson(path, id) {
                     jsonData.data.splice(i, 1);
                 }
             }
-            console.log(jsonData.data);
             jsonData.total = jsonData.data.length;
             var str = JSON.stringify(jsonData);
             //然后再把数据写进去
@@ -87,9 +86,8 @@ function changeJson(path, id, params) {
                 if (id == jsonData.data[i].id) {
                     console.log('id一样的');
                     for (var key in params) {
-                        if (jsonData.data[i][key]!=undefined) {
+                        if (jsonData.data[i][key] != undefined) {
                             jsonData.data[i][key] = params[key];
-                            console.log("sssss",jsonData.data[i][key]);
                         }
                     }
                 }
@@ -111,37 +109,42 @@ function changeJson(path, id, params) {
     })
 }
 
-function pagination(path, p, s, params) {
+function pagination(res,path, p, s, params) {
     //p为页数，比如第一页传0，第二页传1,s为每页多少条数据
-    var jsonData = fs.readFileSync(path, 'utf8');
-    try {
-        jsonData = jsonData.toString();
-        jsonData = JSON.parse(jsonData);
-        let conditions = {
-            chooses: []
-        };
-        for (let p in params) {
-            if (p != "path" && p != "page" && p != "size") {
-                conditions.chooses.push({
-                    type: isRealNum(params[p]) ? "number" : "strung",
-                    key: p,
-                    value: params[p]
-                });
-            }
+    fs.readFile(path, function (err, jsonData) {
+        if (err) {
+            return console.error(err);
         }
-        jsonData.data = doFilter(jsonData.data, conditions);
-        //把数据读出来
-        var length = jsonData.data.length;
-        var count = (p + 1) * s > length ? length : (p + 1) * s
-        jsonData.data = jsonData.data.slice(s * (p - 1), count);
-        jsonData.total = jsonData.data.length;
-        return jsonData;
-    } catch (error) {
-        console.log(error);
-        return jsonData;
-    }
+        try {
+            jsonData = jsonData.toString();
+            jsonData = JSON.parse(jsonData);
+            let conditions = {
+                chooses: []
+            };
+            for (let p in params) {
+                if (p != "path" && p != "page" && p != "size") {
+                    conditions.chooses.push({
+                        type: isRealNum(params[p]) ? "number" : "strung",
+                        key: p,
+                        value: params[p]
+                    });
+                }
+            }
+            jsonData.data = doFilter(jsonData.data, conditions);
+            //把数据读出来
+            var length = jsonData.data.length;
+            var count = (p + 1) * s > length ? length : (p + 1) * s
+            jsonData.data = jsonData.data.slice(s * (p - 1), count);
+            jsonData.total = jsonData.data.length;
+            res.setHeader('Content-Type', 'application/json;charset=utf-8');
+            res.send(jsonData);
+        } catch (error) {
+            console.log(error);
+            res.setHeader('Content-Type', 'application/json;charset=utf-8');
+            res.send({});
+        }
 
-
+    })
 }
 function isRealNum(val) {
     // isNaN()函数 把空串 空格 以及NUll 按照0来处理 所以先去除
@@ -188,7 +191,6 @@ function doFilter(jsonData, conditions) {
          * 选择类型筛选
          */
         choosesFilter: function (jsonData, chooses) {
-            console.log("chooses", chooses);
             let tmpjsonData = [];
             if (chooses.length === 0) {
                 tmpjsonData = jsonData;
@@ -242,10 +244,8 @@ exports.list = function (req, res) {
     let page = req.query.page || 0;
     let size = req.query.size || 10;
     let params = req.query;
-    console.log(params);
-    var data = pagination(parseUrl(path), page, size, params);
-    res.setHeader('Content-Type', 'application/json;charset=utf-8');
-    res.send(data);
+    var data = pagination(res,parseUrl(path), page, size, params);
+
 };
 
 exports.delete = function (req, res) {
