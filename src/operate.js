@@ -143,7 +143,6 @@ function pagination(res,path, p, s, params) {
             res.setHeader('Content-Type', 'application/json;charset=utf-8');
             res.send({});
         }
-
     })
 }
 function isRealNum(val) {
@@ -241,7 +240,7 @@ function parseUrl(path) {
 
 exports.list = function (req, res) {
     let path = req.query.path;
-    let page = req.query.page || 0;
+    let page = req.query.page || 1;
     let size = req.query.size || 10;
     let params = req.query;
     var data = pagination(res,parseUrl(path), page, size, params);
